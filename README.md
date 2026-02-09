@@ -36,6 +36,8 @@ f1tenth-racetrack-generator는 f1tenth 자율주행 레이싱 대회를 위한 �
 
 ### 4.1 centerline generation
 
+(almost completed)
+
 - 1. generate initial random points (boundary from `width`, `height`, and number of points from `n_points`)
 - 2. run Lloyd's algorithm (`max_lloyd_iterations` times) to pseudo-normalizing the spacing between points.
 - 3. select random region indices from generated voronoi diagram by virtual_grid. (with coverage `virtual_grid_coverage`)
@@ -44,6 +46,8 @@ f1tenth-racetrack-generator는 f1tenth 자율주행 레이싱 대회를 위한 �
 - 6. with given polygon, interpolate it, make it centerline
 
 ### 4.2 wall generation
+
+(need to be updated)
 
 - 1. with given centerline, get metadata for each points (parameter t, tangent vector, curvature, distance along curve, left raycast length, right raycast length)
   - raycast length mean, try to find first raycasted point from its polygon, where raycast origin point is the given point, and direction is perpendicular to its tangent vector, so left and right.
@@ -57,11 +61,20 @@ f1tenth-racetrack-generator는 f1tenth 자율주행 레이싱 대회를 위한 �
 
 ## 5. Output format
 
+(todo)
+
 - `centerline.npy` : centerline.py에서 생성된 센터라인 포인트 (x, y, t, cumulative_distance, curvature, left_width, right_width) 배열 (N x 7)
 - `wall.npy` : wall.py에서 생성된 벽 occupancy grid (w x h) (resolution 고려)
 - `optimized_global_path.npy` : optimized_global_path.py에서 생성된 최적화된 전체 경로 (x, y, t, curvature, left_width, right_width) 배열 (N x 7)
 
 ## 6. Example and usage
+
+```bash
+# uv sync
+
+# run
+uv run python main.py
+```
 
 ## 7. Troubleshooting?
 
