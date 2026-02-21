@@ -1,26 +1,25 @@
 config:
-  # 공간 크기
-  width: 20.0
-  height: 15.0
+  space:
+    width: 20.0
+    height: 10.0
 
-  # 센터라인 파라미터
-  n_points: 60
-  max_lloyd_iterations: 20
-  max_verifying_iterations: 50
-  virtual_grid_width: 3.0
-  virtual_grid_coverage: 0.8
-  curvature_threshold: 0.3
+  centerline:
+    n_points: 60
+    max_lloyd_iterations: 10
+    curvature_threshold: 0.3
 
-  track_width_profile_function_name: "default"
+  walls:
+    duct_thickness: 0.30
+    min_track_width: 3.00
+    width_model:
+      components:
+        - type: constant
+          value_dist:
+            type: uniform
+            low: 1.0
+            high: 2.0
 
-  # 벽 생성 파라미터
-  duct_thickness: 0.30 # 30cm 두께 duct
-  min_duct_length: 0.50 # 최소 50cm
-  max_duct_length: 2.00 # 최대 2m
-  min_track_width: 1.50 # 최소 트랙 너비 3m
-  wall_points_per_meter: 100 # 벽 점 밀도
-  connection_tolerance: 0.15 # 15cm 연결 허용 오차
-  resolution: 0.05 # 5cm 해상도
-
-  visualize: true
-  debug_output_dir: "./debug"
+  output:
+    visualize: false
+    debug_output_dir: "debug"
+    output_dir: "output"

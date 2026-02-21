@@ -6,6 +6,8 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "concave-hull>=0.1.2",
+    "jsonschema>=4.26.0",
+    "lloyd>=0.0.10",
     "matplotlib>=3.10.8",
     "numpy>=2.4.2",
     "pyyaml>=6.0.3",
