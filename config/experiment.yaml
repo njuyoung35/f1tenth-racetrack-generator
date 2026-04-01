@@ -1,0 +1,30 @@
+# config/experiment.yaml
+global:
+  seed: 42                     # base seed (can be overridden per run)
+  output_dir: experiments/
+  log_metrics: True
+  visualize: True
+
+runs:
+  - name: "voronoi_curvature_width_obb"
+    centerline:
+      type: "procedural_voronoi"
+      params:
+        width: 100.0
+        height: 100.0
+        num_points: 200
+        max_curvature: 0.5
+        random_seed: 123
+    track:
+      type: "curvature_coupled"
+      params:
+        base_width: 0.5
+        alpha: 0.2
+        beta: 1.0
+    air_duct:
+      type: "obb_chain"
+      params:
+        duct_length: 0.4
+        duct_width: 0.1
+        gap_tolerance: 0.02
+        optimization_iters: 50
